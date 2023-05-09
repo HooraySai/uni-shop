@@ -29,7 +29,7 @@
 					</navigator>
 					<!-- 左侧四个小图片 -->
 					<view class="right-img-box">
-						<navigator class="right-img-item" v-for="(item2, i2) in item2.product_list" :key="i2" v-if="i2 !== 0" :url="item2.url">
+						<navigator class="right-img-item" v-for="(item2, i2) in item.product_list" :key="i2" v-if="i2 !== 0" :url="item2.url">
 							<image :src="item2.image_src" :style="{width: item2.image_width + 'rpx'}" mode="widthFix"></image>
 						</navigator>
 					</view>
@@ -82,7 +82,7 @@
 				// 对数据处理
 				res.message.forEach(floor => {
 					floor.product_list.forEach(prod => {
-						prod.url = '/subpgk/goods_list/goods_list?' + prod.navigator_url.split('?')
+						prod.url = '/subpgk/goods_list/goods_list?' + prod.navigator_url.split('?')[1]
 					})
 				})
 				this.floorList = res.message
