@@ -19,6 +19,8 @@ $http.beforeRequest = function(options) {
 // 响应拦截器
 $http.afterRequest = function() {
 	uni.hideLoading()
+	
+	
 }
 
 uni.$showMsg = function(title='数据加载失败', duration=1500) {

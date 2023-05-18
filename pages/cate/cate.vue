@@ -1,6 +1,8 @@
 <template>
 	<view>
+		<my-search bgcolor="pink" @gotoSearch="gotoSearch"></my-search>
 		<view class="scroll-view-container">
+			
 			<!-- 左侧滑动区 -->
 			<scroll-view class="scroll-left" scroll-y="true" :style="{height: wh + 'px'}">
 				<block v-for="(item, i) in cateList" :key="i">
@@ -23,7 +25,6 @@
 					</view>
 				</view>
 			</scroll-view>
-			
 		</view>
 	</view>
 </template>
@@ -63,6 +64,12 @@
 			gotoGoodList(item) {
 				uni.navigateTo({
 					url: '/subpkg/goods_list/goods_list?cid=' + item.cat_id
+				})
+			},
+			
+			gotoSearch() {
+				uni.navigateTo({
+					url: '/subpkg/search/search'
 				})
 			}
 		}
